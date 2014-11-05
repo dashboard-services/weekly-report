@@ -1,0 +1,22 @@
+{
+  "name": "weekly-report",
+  "version": "1.0.0",
+  "description": "A widget for tracking Weekly Report campaign from Hubspot.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hubspot",
+    "weekly-report",
+    "tail"
+  ],
+  "author": "Ignacio Tolstoy",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^2.1.0",
+    "express": "^4.10.1",
+    "hubspot": "0.0.3",
+    "request": "^2.47.0"
+  }
+}
