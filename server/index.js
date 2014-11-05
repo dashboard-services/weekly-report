@@ -2,7 +2,8 @@ var debug = require('debug')('weekly-report:main'),
 	express = require('express'),
 	app = express(),
 	fs = require('fs')
-	hubspot = require('./lib/hubspot')
+	hubspot = require('./lib/hubspot'),
+	chartsConverter = require('./lib/amchartsconverter');
 ;
 
 app.use('/', express.static(__dirname + '/../client/public'));
@@ -20,7 +21,7 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/api/emails', function(req, res, next) {
-	res.send(hubspot.getAll());
+	res.send(chartsConverter.convert(hubspot.getAll()));
 });
 
 module.exports = app;

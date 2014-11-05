@@ -26,6 +26,8 @@ var updateHubspotInfo = function updateHubspotInfo() {
 					return;
 				}
 
+				if (typeof response.name === 'undefined') { return; }
+
 				campaign.name = response.name;
 				campaign.subject = response.subject;
 				campaign.stats = response.counters;
