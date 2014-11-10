@@ -1,5 +1,1 @@
-module.exports = {
-	'apikey': '',
-	'campaignId': '',
-	'limit': 100000
-}
+module.exports = require('./settings');

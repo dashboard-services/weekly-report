@@ -1,0 +1,5 @@
+{
+	"apikey": "your huspot api key",
+	"campaignId": "The campaign you want to track",
+	"limit": 100000
+}
