@@ -8,56 +8,51 @@ function buildChart(data) {
 	AmCharts.makeChart("chartdiv",
 		{
 			"type": "serial",
-			"pathToImages": "//cdn.amcharts.com/lib/3/images/",
-			"categoryField": "category",
+			"theme": "light",
+			"autoMargins": false,
+			"marginLeft":50,
+			"marginRight":10,
+			"marginTop":10,
+			"marginBottom":26,
+
+			"valueAxes": [{
+				"axisAlpha": 0,
+				"position": "left",
+				"minimum": 0
+			}],
 			"startDuration": 1,
+
+			"graphs": [{
+				"balloonText": "[[title]]:[[value]]",
+				"fillAlphas": 1,
+				"id": "AmGraph-1",
+				"title": "Sent",
+				"type": "column",
+				"valueField": "sent"
+			},
+			{
+				"balloonText": "[[title]]:[[value]]",
+				"fillAlphas": 1,
+				"id": "AmGraph-2",
+				"title": "Delivered",
+				"type": "column",
+				"valueField": "delivered"
+			},
+			{
+				"id": "AmGraph-3",
+				"title": "Open",
+				"valueField": "open"
+			}],
+
+			"categoryField": "category",
+			
 			"categoryAxis": {
-				"gridPosition": "start"
+				"gridPosition": "start",
+				"axisAlpha": 0,
+				"tickLength": 0
 			},
-			"trendLines": [],
-			"graphs": [
-				{
-					"balloonText": "[[title]] of [[category]]:[[value]]",
-					"fillAlphas": 1,
-					"id": "AmGraph-1",
-					"title": "Sent emails",
-					"type": "column",
-					"valueField": "sent"
-				},
-				{
-					"balloonText": "[[title]] of [[category]]:[[value]]",
-					"fillAlphas": 1,
-					"id": "AmGraph-2",
-					"title": "Delivered emails",
-					"type": "column",
-					"valueField": "delivered"
-				},
-				{
-					"id": "AmGraph-3",
-					"title": "Open emails",
-					"valueField": "open"
-				}
-			],
-			"guides": [],
-			"valueAxes": [
-				{
-					"id": "ValueAxis-1",
-					"title": "N. of emails"
-				}
-			],
-			"allLabels": [],
-			"balloon": {},
-			"legend": {
-				"useGraphSettings": true
-			},
-			"titles": [
-				{
-					"id": "Title-1",
-					"size": 15,
-					"text": "Weekly report data"
-				}
-			],
-			"dataProvider": data
+			"dataProvider": data,
+			"trendLines": []
 		}
 	);
 }
