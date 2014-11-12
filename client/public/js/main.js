@@ -5,44 +5,54 @@ $(function() {
 });
 
 function buildChart(data) {
-	AmCharts.makeChart("chartdiv", {
-		"type": "serial",
-		"theme": "light",
-		"pathToImages": "//cdn.amcharts.com/lib/3/images/",
-		"categoryField": "category",
-		"startDuration": 1,
-		"categoryAxis": {
-			"gridPosition": "start"
-		},
-		"trendLines": [],
-		"graphs": [
-			{
+	AmCharts.makeChart("chartdiv",
+		{
+			"type": "serial",
+			"theme": "light",
+			"autoMargins": false,
+			"marginLeft":50,
+			"marginRight":10,
+			"marginTop":10,
+			"marginBottom":26,
+
+			"valueAxes": [{
+				"axisAlpha": 0,
+				"position": "left",
+				"minimum": 0
+			}],
+			"startDuration": 1,
+
+			"graphs": [{
+				"balloonText": "[[title]]:[[value]]",
 				"fillAlphas": 1,
 				"id": "AmGraph-1",
-				"title": "Sent emails",
+				"title": "Sent",
 				"type": "column",
 				"valueField": "sent"
 			},
 			{
+				"balloonText": "[[title]]:[[value]]",
 				"fillAlphas": 1,
 				"id": "AmGraph-2",
-				"title": "Delivered emails",
+				"title": "Delivered",
 				"type": "column",
 				"valueField": "delivered"
 			},
 			{
 				"id": "AmGraph-3",
-				"title": "Open emails",
+				"title": "Open",
 				"valueField": "open"
-			}
-		],
-		"guides": [],
-		"valueAxes": [{
-			"axisAlpha": 0,
-			"minimum": 0,
-		}],
-		"allLabels": [],
-		"balloon": {},
-		"dataProvider": data
-	});
+			}],
+
+			"categoryField": "category",
+			
+			"categoryAxis": {
+				"gridPosition": "start",
+				"axisAlpha": 0,
+				"tickLength": 0
+			},
+			"dataProvider": data,
+			"trendLines": []
+		}
+	);
 }
