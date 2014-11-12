@@ -12,9 +12,8 @@ module.exports = {
 			var timestamp = item.name.split(' ').pop();
 
 			return {
-				'category': moment(timestamp, 'YYYYMMDD').format('l'),
+				'category': moment(timestamp, 'YYYYMMDD').format('DD/MM/YYYY'),
 				'delivered': item.stats.delivered,
-				'sent': item.stats.sent,
 				'open': item.stats.open,
 			};
 		}).reverse().slice(0, 4);

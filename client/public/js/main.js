@@ -27,21 +27,16 @@ function buildChart(data) {
 				"balloonText": "[[title]]:[[value]]",
 				"fillAlphas": 1,
 				"id": "AmGraph-1",
-				"title": "Sent",
-				"type": "column",
-				"valueField": "sent"
-			},
-			{
-				"balloonText": "[[title]]:[[value]]",
-				"fillAlphas": 1,
-				"id": "AmGraph-2",
 				"title": "Delivered",
 				"type": "column",
 				"valueField": "delivered"
 			},
 			{
-				"id": "AmGraph-3",
+				"balloonText": "[[title]]:[[value]]",
+				"fillAlphas": 1,
+				"id": "AmGraph-2",
 				"title": "Open",
+				"type": "column",
 				"valueField": "open"
 			}],
 
