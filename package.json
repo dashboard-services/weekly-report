@@ -1,5 +1,6 @@
 {
   "name": "weekly-report",
+  "size": "m",
   "version": "1.0.0",
   "description": "A widget for tracking Weekly Report campaign from Hubspot.",
   "main": "index.js",

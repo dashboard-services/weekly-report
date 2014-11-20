@@ -1,5 +1,5 @@
 $(function() {
-	$.ajax('/api/emails').done(function(res) {
+	$.ajax('api/emails').done(function(res) {
 		buildChart(res);
 		$('#chartdiv a').remove();
 	});
@@ -41,7 +41,7 @@ function buildChart(data) {
 			}],
 
 			"categoryField": "category",
-			
+
 			"categoryAxis": {
 				"gridPosition": "start",
 				"axisAlpha": 0,

@@ -1,27 +1,21 @@
 var debug = require('debug')('weekly-report:main'),
-	express = require('express'),
-	app = express(),
-	fs = require('fs')
-	hubspot = require('./lib/hubspot'),
-	chartsConverter = require('./lib/amchartsconverter');
+  express = require('express'),
+  app = express(),
+  fs = require('fs'),
+  path = require( 'path' ),
+  hubspot = require('./lib/hubspot'),
+  chartsConverter = require('./lib/amchartsconverter');
 ;
 
 app.use('/', express.static(__dirname + '/../client/public'));
 
 app.get('/', function(req, res, next) {
-   fs.readFile("./client/index.html", function(err, index) {
-   		if (err) {
-   			res.send(err);
-   			return;
-   		}
-
-        res.set('Content-Type', 'text/html');
-        res.send(index);
-    });
+  res.set('Content-Type', 'text/html');
+  fs.createReadStream( path.join( __dirname, '..', 'client', 'index.html' ) ).pipe( res );
 });
 
 app.get('/api/emails', function(req, res, next) {
-	res.send(chartsConverter.convert(hubspot.getAll()));
+  res.send(chartsConverter.convert(hubspot.getAll()));
 });
 
 module.exports = app;
